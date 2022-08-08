@@ -248,7 +248,7 @@ In this case, we will use Kyverno v1.6.2. Related deployment files are from [her
        clusters:
        - cluster:
            certificate-authority-data: {{ca_crt}}
-           server: https://karmada-apiserver.karmada-system.svc.cluster.local:5443
+           server: https://karmada-apiserver.karmada-system.svc.cloudos:5443
          name: kind-karmada
        contexts:
        - context:

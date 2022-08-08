@@ -226,7 +226,7 @@ func etcdServers(opts *addoninit.CommandAddonsEnableOption) (string, error) {
 	ectdServers := ""
 
 	for v := int32(0); v < ectdReplicas; v++ {
-		ectdServers += fmt.Sprintf("https://%s-%v.%s.%s.svc.cluster.local:%v", etcdStatefulSetAndServiceName, v, etcdStatefulSetAndServiceName, opts.Namespace, etcdContainerClientPort) + ","
+		ectdServers += fmt.Sprintf("https://%s-%v.%s.%s.svc.cloudos:%v", etcdStatefulSetAndServiceName, v, etcdStatefulSetAndServiceName, opts.Namespace, etcdContainerClientPort) + ","
 	}
 
 	return strings.TrimRight(ectdServers, ","), nil

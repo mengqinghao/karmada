@@ -22,4 +22,4 @@ metadata:
   namespace: karmada-system
 spec:
   type: ExternalName
-  externalName: karmada-search.karmada-system.svc.cluster.local
+  externalName: karmada-search.karmada-system.svc.cloudos

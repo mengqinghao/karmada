@@ -112,7 +112,7 @@ func (i CommandInitOption) etcdVolume() (*[]corev1.Volume, *corev1.PersistentVol
 func (i *CommandInitOption) etcdInitContainerCommand() []string {
 	etcdClusterConfig := ""
 	for v := int32(0); v < i.EtcdReplicas; v++ {
-		etcdClusterConfig += fmt.Sprintf("%s-%v=http://%s-%v.%s.%s.svc.cluster.local:%v", etcdStatefulSetAndServiceName, v, etcdStatefulSetAndServiceName, v, etcdStatefulSetAndServiceName, i.Namespace, etcdContainerServerPort) + ","
+		etcdClusterConfig += fmt.Sprintf("%s-%v=http://%s-%v.%s.%s.svc.cloudos:%v", etcdStatefulSetAndServiceName, v, etcdStatefulSetAndServiceName, v, etcdStatefulSetAndServiceName, i.Namespace, etcdContainerServerPort) + ","
 	}
 
 	command := []string{
@@ -138,7 +138,7 @@ initial-cluster: %s
 listen-peer-urls: http://${%s}:%v 
 listen-client-urls: https://${%s}:%v,http://127.0.0.1:%v
 initial-advertise-peer-urls: http://${%s}:%v
-advertise-client-urls: https://${%s}.%s.%s.svc.cluster.local:%v
+advertise-client-urls: https://${%s}.%s.%s.svc.cloudos:%v
 data-dir: %s
 
 `,

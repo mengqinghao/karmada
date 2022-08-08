@@ -70,9 +70,9 @@ spec:
             - --listen-client-urls
             - https://0.0.0.0:2379
             - --advertise-client-urls
-            - https://etcd-client.karmada-system.svc.cluster.local:2379
+            - https://etcd-client.karmada-system.svc.cloudos:2379
             - --initial-cluster
-            - etcd0=http://etcd-0.etcd.karmada-system.svc.cluster.local:2380
+            - etcd0=http://etcd-0.etcd.karmada-system.svc.cloudos:2380
             - --initial-cluster-state
             - new
             - --cert-file=/etc/kubernetes/pki/etcd/karmada.crt

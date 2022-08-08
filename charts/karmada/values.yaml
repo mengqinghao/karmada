@@ -18,7 +18,7 @@ global:
 installMode: "host"
 
 ## @param clusterDomain default domain for karmada
-clusterDomain: "cluster.local"
+clusterDomain: "cloudos"
 
 ## @param components component list
 components: []

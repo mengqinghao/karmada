@@ -214,7 +214,7 @@ hack/local-up-karmada.sh
            target_label: kubernetes_pod_name
        - job_name: kube-state-metrics
          static_configs:
-         - targets: ['kube-state-metrics.monitor.svc.cluster.local:8080']
+         - targets: ['kube-state-metrics.monitor.svc.cloudos:8080']
    ---
    kind: Service
    apiVersion: v1

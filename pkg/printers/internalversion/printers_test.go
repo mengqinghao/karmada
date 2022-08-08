@@ -39,7 +39,7 @@ func TestPrintCluster(t *testing.T) {
 				ObjectMeta: metav1.ObjectMeta{Name: "test2"},
 				Spec: clusterapis.ClusterSpec{
 					SyncMode:    clusterapis.Push,
-					APIEndpoint: "https://kubernetes.default.svc.cluster.local:6443",
+					APIEndpoint: "https://kubernetes.default.svc.cloudos:6443",
 				},
 				Status: clusterapis.ClusterStatus{
 					KubernetesVersion: "1.24.2",
@@ -49,7 +49,7 @@ func TestPrintCluster(t *testing.T) {
 				},
 			},
 			printers.GenerateOptions{Wide: true},
-			[]metav1.TableRow{{Cells: []interface{}{"test2", "1.24.2", clusterapis.ClusterSyncMode("Push"), "True", "<unknown>", "https://kubernetes.default.svc.cluster.local:6443"}}},
+			[]metav1.TableRow{{Cells: []interface{}{"test2", "1.24.2", clusterapis.ClusterSyncMode("Push"), "True", "<unknown>", "https://kubernetes.default.svc.cloudos:6443"}}},
 		},
 	}
 

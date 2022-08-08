@@ -176,7 +176,7 @@ create `karmada-apiserver ` certificate.
 openssl genrsa -out karmada-apiserver.key 2048
 openssl req -new -nodes -sha256 -subj "/C=CN/ST=Guangdong/L=Guangzhou/O=karmada/OU=System/CN=karmada" -key karmada-apiserver.key -out karmada-apiserver.csr
 openssl x509 -req -days 3650 \
-  -extfile <(printf "keyUsage=critical,Digital Signature, Key Encipherment\nextendedKeyUsage=serverAuth,clientAuth\nauthorityKeyIdentifier=keyid,issuer\nsubjectAltName=DNS:kubernetes,DNS:kubernetes.default,DNS:kubernetes.default.svc,DNS:kubernetes.default.svc.cluster,DNS:kubernetes.default.svc.cluster.local,IP:172.31.209.245,IP:172.31.209.246,IP:172.31.209.247,IP:10.254.0.1,IP:47.242.88.82") \
+  -extfile <(printf "keyUsage=critical,Digital Signature, Key Encipherment\nextendedKeyUsage=serverAuth,clientAuth\nauthorityKeyIdentifier=keyid,issuer\nsubjectAltName=DNS:kubernetes,DNS:kubernetes.default,DNS:kubernetes.default.svc,DNS:kubernetes.default.svc.cluster,DNS:kubernetes.default.svc.cloudos,IP:172.31.209.245,IP:172.31.209.246,IP:172.31.209.247,IP:10.254.0.1,IP:47.242.88.82") \
   -sha256  -CA ca.crt -CAkey ca.key -set_serial 01  -in karmada-apiserver.csr -out karmada-apiserver.crt
 ```
 
@@ -591,7 +591,7 @@ ExecStart=/usr/local/sbin/kube-apiserver \
   --service-node-port-range=10-60060 \
   --enable-swagger-ui=true \
   --logtostderr=true \
-  --service-account-issuer=https://kubernetes.default.svc.cluster.local \
+  --service-account-issuer=https://kubernetes.default.svc.cloudos \
   --service-account-key-file=/etc/karmada/pki/sa.pub \
   --service-account-signing-key-file=/etc/karmada/pki/sa.key
 

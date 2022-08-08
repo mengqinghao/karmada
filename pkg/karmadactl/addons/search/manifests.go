@@ -115,7 +115,7 @@ metadata:
   namespace: {{ .Namespace }}
 spec:
   type: ExternalName
-  externalName: karmada-search.{{ .Namespace }}.svc.cluster.local
+  externalName: karmada-search.{{ .Namespace }}.svc.cloudos
 `
 )
 

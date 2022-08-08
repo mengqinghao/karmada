@@ -29,7 +29,7 @@ func TestGenCerts(t *testing.T) {
 	}
 
 	for i := 0; i < 3; i++ {
-		etcdServerCertDNS = append(etcdServerCertDNS, fmt.Sprintf("%s-%v.%s.%s.svc.cluster.local", "etcd", i, "etcd", namespace))
+		etcdServerCertDNS = append(etcdServerCertDNS, fmt.Sprintf("%s-%v.%s.%s.svc.cloudos", "etcd", i, "etcd", namespace))
 	}
 
 	etcdServerAltNames := certutil.AltNames{
@@ -47,9 +47,9 @@ func TestGenCerts(t *testing.T) {
 		"kubernetes.default.svc",
 		"karmada-apiserver",
 		"karmada-webhook",
-		fmt.Sprintf("%s.%s.svc.cluster.local", "karmada-apiserver", namespace),
-		fmt.Sprintf("%s.%s.svc.cluster.local", "karmada-webhook", namespace),
-		fmt.Sprintf("*.%s.svc.cluster.local", namespace),
+		fmt.Sprintf("%s.%s.svc.cloudos", "karmada-apiserver", namespace),
+		fmt.Sprintf("%s.%s.svc.cloudos", "karmada-webhook", namespace),
+		fmt.Sprintf("*.%s.svc.cloudos", namespace),
 		fmt.Sprintf("*.%s.svc", namespace),
 	}
 	if hostName, err := os.Hostname(); err != nil {

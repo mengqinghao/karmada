@@ -124,8 +124,8 @@ util::cmd_must_exist_cfssl ${CFSSL_VERSION}
 util::create_signing_certkey "" "${CERT_DIR}" server '"client auth","server auth"'
 util::create_signing_certkey "" "${CERT_DIR}" front-proxy '"client auth","server auth"'
 # signs a certificate
-util::create_certkey "" "${CERT_DIR}" "server-ca" karmada system:admin kubernetes.default.svc "*.etcd.karmada-system.svc.cluster.local" "*.karmada-system.svc.cluster.local" "*.karmada-system.svc" "localhost" "127.0.0.1" "${interpreter_webhook_example_service_external_ip_address}"
-util::create_certkey "" "${CERT_DIR}" "front-proxy-ca" front-proxy-client front-proxy-client kubernetes.default.svc "*.etcd.karmada-system.svc.cluster.local" "*.karmada-system.svc.cluster.local" "*.karmada-system.svc" "localhost" "127.0.0.1"
+util::create_certkey "" "${CERT_DIR}" "server-ca" karmada system:admin kubernetes.default.svc "*.etcd.karmada-system.svc.cloudos" "*.karmada-system.svc.cloudos" "*.karmada-system.svc" "localhost" "127.0.0.1" "${interpreter_webhook_example_service_external_ip_address}"
+util::create_certkey "" "${CERT_DIR}" "front-proxy-ca" front-proxy-client front-proxy-client kubernetes.default.svc "*.etcd.karmada-system.svc.cloudos" "*.karmada-system.svc.cloudos" "*.karmada-system.svc" "localhost" "127.0.0.1"
 
 # create namespace for control plane components
 kubectl apply -f "${REPO_ROOT}/artifacts/deploy/namespace.yaml"

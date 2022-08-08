@@ -385,7 +385,7 @@ In this case, you will use Gatekeeper v3.7.2. Related deployment files are from 
        clusters:
        - cluster:
            certificate-authority-data: {{ca_crt}}
-           server: https://karmada-apiserver.karmada-system.svc.cluster.local:5443
+           server: https://karmada-apiserver.karmada-system.svc.cloudos:5443
          name: kind-karmada
        contexts:
        - context:
